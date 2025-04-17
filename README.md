@@ -1,39 +1,91 @@
-# Gestionnaire de Fichiers Local avec Streamlit
+# Banque des Mémoires
 
-Une application web simple pour gérer des fichiers en local, construite avec Streamlit.
+Une application web pour la gestion des mémoires universitaires, développée avec Streamlit et SQLite.
 
 ## Fonctionnalités
 
-- Upload de fichiers
-- Visualisation de la liste des fichiers stockés
-- Suppression de fichiers
-- Stockage local sécurisé
+- Authentification des utilisateurs (administrateurs et utilisateurs standard)
+- Gestion des mémoires universitaires
+- Système de favoris
+- Gestion des entités et filières
+- Système de journalisation (logs)
+- Interface utilisateur intuitive et moderne
+- Base de données SQLite intégrée
 
 ## Installation
 
 1. Clonez ce dépôt :
 ```bash
-git clone <votre-url-github>
+git clone https://github.com/votre-username/banque-des-memoires.git
+cd banque-des-memoires
 ```
 
-2. Installez les dépendances :
+2. Créez un environnement virtuel (recommandé) :
+```bash
+python -m venv venv
+source venv/bin/activate  # Sur Linux/Mac
+# ou
+venv\Scripts\activate     # Sur Windows
+```
+
+3. Installez les dépendances :
 ```bash
 pip install -r requirements.txt
 ```
 
+## Configuration
+
+L'application utilise SQLite comme base de données, ce qui ne nécessite aucune configuration supplémentaire. La base de données sera automatiquement créée au premier lancement dans le dossier `data/`.
+
 ## Utilisation
 
-Pour lancer l'application :
-
+1. Lancez l'application :
 ```bash
-streamlit run streamlit_app.py
+streamlit run home.py
 ```
 
-L'application sera accessible à l'adresse : http://localhost:8501
+2. Accédez à l'application dans votre navigateur (par défaut : http://localhost:8501)
 
 ## Structure du projet
 
-- `streamlit_app.py` : Application principale Streamlit
-- `local_storage.py` : Gestionnaire de stockage local
+- `home.py` : Application principale Streamlit
+- `database.py` : Gestionnaire de base de données SQLite
+- `storage.py` : Gestionnaire de stockage des fichiers
 - `requirements.txt` : Dépendances du projet
-- `data/files/` : Dossier de stockage des fichiers (créé automatiquement) 
+- `data/` : Dossier contenant la base de données et les fichiers uploadés
+  - `memoires_db.sqlite` : Base de données SQLite
+  - `memoires/` : Stockage des fichiers PDF
+
+## Déploiement
+
+1. Créez un nouveau dépôt sur GitHub
+
+2. Initialisez Git et poussez le code :
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/votre-username/banque-des-memoires.git
+git push -u origin main
+```
+
+## Dépendances principales
+
+- Streamlit : Interface utilisateur web
+- SQLite3 : Base de données
+- Pandas : Manipulation des données
+- PyPDF2 : Gestion des fichiers PDF
+
+## Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à :
+1. Fork le projet
+2. Créer une branche pour votre fonctionnalité
+3. Commiter vos changements
+4. Pousser vers la branche
+5. Ouvrir une Pull Request
+
+## Licence
+
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
